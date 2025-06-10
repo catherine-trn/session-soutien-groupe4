@@ -1,6 +1,4 @@
 -- model int_web_session.sql
-
-
 with session_product as (
    select distinct
        session_id,
@@ -16,8 +14,6 @@ with session_product as (
            true,
            false
        ) as event_cart_add,
-
-
        -- Flag if any event in the session was a purchase
        if(
            last_value(event_type) over (
@@ -29,13 +25,9 @@ with session_product as (
            true,
            false
        ) as event_purchase
-
-
    from `bigquery-public-data.thelook_ecommerce.events`
    where user_id is not null
 )
-
-
 -- Join the sessions with product details
 select distinct
    sp.session_id,
