@@ -45,4 +45,4 @@ from session_product as sp
 left join `bigquery-public-data.thelook_ecommerce.products` as p
    on sp.product_id = p.id
 where sp.product_id is not null
-group by 1,2,3,4,5,6
+group by 1,2,3,4,5
